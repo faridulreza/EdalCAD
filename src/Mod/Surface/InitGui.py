@@ -47,4 +47,4 @@ class SurfaceWorkbench(Gui.Workbench):
         return "SurfaceGui::Workbench"
 
 
-Gui.addWorkbench(SurfaceWorkbench())
+# Gui.addWorkbench(SurfaceWorkbench())

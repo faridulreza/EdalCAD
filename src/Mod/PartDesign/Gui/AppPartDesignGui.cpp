@@ -99,69 +99,69 @@ PyObject* initModule()
 
 
 /* Python entry */
-PyMOD_INIT_FUNC(PartDesignGui)
-{
-    if (!Gui::Application::Instance) {
-        PyErr_SetString(PyExc_ImportError, "Cannot load Gui module in console application.");
-        PyMOD_Return(nullptr);
-    }
+// PyMOD_INIT_FUNC(PartDesignGui)
+// {
+//     if (!Gui::Application::Instance) {
+//         PyErr_SetString(PyExc_ImportError, "Cannot load Gui module in console application.");
+//         PyMOD_Return(nullptr);
+//     }
 
-    try {
-        Base::Interpreter().runString("import PartGui");
-        Base::Interpreter().runString("import SketcherGui");
-    }
-    catch(const Base::Exception& e) {
-        PyErr_SetString(PyExc_ImportError, e.what());
-        PyMOD_Return(nullptr);
-    }
+//     try {
+//         Base::Interpreter().runString("import PartGui");
+//         Base::Interpreter().runString("import SketcherGui");
+//     }
+//     catch(const Base::Exception& e) {
+//         PyErr_SetString(PyExc_ImportError, e.what());
+//         PyMOD_Return(nullptr);
+//     }
 
-    PyObject* mod = PartDesignGui::initModule();
-    Base::Console().Log("Loading GUI of PartDesign module... done\n");
+//     PyObject* mod = PartDesignGui::initModule();
+//     Base::Console().Log("Loading GUI of PartDesign module... done\n");
 
-    // instantiating the commands
-    CreatePartDesignCommands();
-    CreatePartDesignBodyCommands();
-    CreatePartDesignPrimitiveCommands();
+//     // instantiating the commands
+//     CreatePartDesignCommands();
+//     CreatePartDesignBodyCommands();
+//     CreatePartDesignPrimitiveCommands();
 
-    PartDesignGui::Workbench                 ::init();
-    PartDesignGui::ViewProvider              ::init();
-    PartDesignGui::ViewProviderPython        ::init();
-    PartDesignGui::ViewProviderBody          ::init();
-    PartDesignGui::ViewProviderSketchBased   ::init();
-    PartDesignGui::ViewProviderPocket        ::init();
-    PartDesignGui::ViewProviderHole          ::init();
-    PartDesignGui::ViewProviderPad           ::init();
-    PartDesignGui::ViewProviderRevolution    ::init();
-    PartDesignGui::ViewProviderDressUp       ::init();
-    PartDesignGui::ViewProviderGroove        ::init();
-    PartDesignGui::ViewProviderChamfer       ::init();
-    PartDesignGui::ViewProviderFillet        ::init();
-    PartDesignGui::ViewProviderDraft         ::init();
-    PartDesignGui::ViewProviderThickness     ::init();
-    PartDesignGui::ViewProviderTransformed   ::init();
-    PartDesignGui::ViewProviderMirrored      ::init();
-    PartDesignGui::ViewProviderLinearPattern ::init();
-    PartDesignGui::ViewProviderPolarPattern  ::init();
-    PartDesignGui::ViewProviderScaled        ::init();
-    PartDesignGui::ViewProviderMultiTransform::init();
-    PartDesignGui::ViewProviderDatum         ::init();
-    PartDesignGui::ViewProviderDatumPoint    ::init();
-    PartDesignGui::ViewProviderDatumLine     ::init();
-    PartDesignGui::ViewProviderDatumPlane    ::init();
-    PartDesignGui::ViewProviderDatumCoordinateSystem::init();
-    PartDesignGui::ViewProviderShapeBinder   ::init();
-    PartDesignGui::ViewProviderSubShapeBinder::init();
-    PartDesignGui::ViewProviderSubShapeBinderPython::init();
-    PartDesignGui::ViewProviderBoolean       ::init();
-    PartDesignGui::ViewProviderAddSub        ::init();
-    PartDesignGui::ViewProviderPrimitive     ::init();
-    PartDesignGui::ViewProviderPipe          ::init();
-    PartDesignGui::ViewProviderLoft          ::init();
-    PartDesignGui::ViewProviderHelix         ::init();
-    PartDesignGui::ViewProviderBase          ::init();
+//     PartDesignGui::Workbench                 ::init();
+//     PartDesignGui::ViewProvider              ::init();
+//     PartDesignGui::ViewProviderPython        ::init();
+//     PartDesignGui::ViewProviderBody          ::init();
+//     PartDesignGui::ViewProviderSketchBased   ::init();
+//     PartDesignGui::ViewProviderPocket        ::init();
+//     PartDesignGui::ViewProviderHole          ::init();
+//     PartDesignGui::ViewProviderPad           ::init();
+//     PartDesignGui::ViewProviderRevolution    ::init();
+//     PartDesignGui::ViewProviderDressUp       ::init();
+//     PartDesignGui::ViewProviderGroove        ::init();
+//     PartDesignGui::ViewProviderChamfer       ::init();
+//     PartDesignGui::ViewProviderFillet        ::init();
+//     PartDesignGui::ViewProviderDraft         ::init();
+//     PartDesignGui::ViewProviderThickness     ::init();
+//     PartDesignGui::ViewProviderTransformed   ::init();
+//     PartDesignGui::ViewProviderMirrored      ::init();
+//     PartDesignGui::ViewProviderLinearPattern ::init();
+//     PartDesignGui::ViewProviderPolarPattern  ::init();
+//     PartDesignGui::ViewProviderScaled        ::init();
+//     PartDesignGui::ViewProviderMultiTransform::init();
+//     PartDesignGui::ViewProviderDatum         ::init();
+//     PartDesignGui::ViewProviderDatumPoint    ::init();
+//     PartDesignGui::ViewProviderDatumLine     ::init();
+//     PartDesignGui::ViewProviderDatumPlane    ::init();
+//     PartDesignGui::ViewProviderDatumCoordinateSystem::init();
+//     PartDesignGui::ViewProviderShapeBinder   ::init();
+//     PartDesignGui::ViewProviderSubShapeBinder::init();
+//     PartDesignGui::ViewProviderSubShapeBinderPython::init();
+//     PartDesignGui::ViewProviderBoolean       ::init();
+//     PartDesignGui::ViewProviderAddSub        ::init();
+//     PartDesignGui::ViewProviderPrimitive     ::init();
+//     PartDesignGui::ViewProviderPipe          ::init();
+//     PartDesignGui::ViewProviderLoft          ::init();
+//     PartDesignGui::ViewProviderHelix         ::init();
+//     PartDesignGui::ViewProviderBase          ::init();
 
-     // add resources and reloads the translators
-    loadPartDesignResource();
+//      // add resources and reloads the translators
+//     loadPartDesignResource();
 
-    PyMOD_Return(mod);
-}
+//     PyMOD_Return(mod);
+// }

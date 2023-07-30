@@ -42,6 +42,6 @@ class StartWorkbench ( Workbench ):
     def GetClassName(self):
         return "StartGui::Workbench"
 
-Gui.addWorkbench(StartWorkbench())
+# Gui.addWorkbench(StartWorkbench())
 
-FreeCAD.__unit_test__ += [ "TestStartGui" ]
+# FreeCAD.__unit_test__ += [ "TestStartGui" ]

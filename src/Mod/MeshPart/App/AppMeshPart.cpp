@@ -32,18 +32,18 @@ extern PyObject* initModule();
 }
 
 /* Python entry */
-PyMOD_INIT_FUNC(MeshPart)
-{
-    // load dependent module
-    try {
-        Base::Interpreter().loadModule("Part");
-        //Base::Interpreter().loadModule("Mesh");
-    }
-    catch(const Base::Exception& e) {
-        PyErr_SetString(PyExc_ImportError, e.what());
-        PyMOD_Return(nullptr);
-    }
-    PyObject* mod = MeshPart::initModule();
-    Base::Console().Log("Loading MeshPart module... done\n");
-    PyMOD_Return(mod);
-}
+// PyMOD_INIT_FUNC(MeshPart)
+// {
+//     // load dependent module
+//     try {
+//         Base::Interpreter().loadModule("Part");
+//         //Base::Interpreter().loadModule("Mesh");
+//     }
+//     catch(const Base::Exception& e) {
+//         PyErr_SetString(PyExc_ImportError, e.what());
+//         PyMOD_Return(nullptr);
+//     }
+//     PyObject* mod = MeshPart::initModule();
+//     Base::Console().Log("Loading MeshPart module... done\n");
+//     PyMOD_Return(mod);
+// }

@@ -42,7 +42,7 @@ class SpreadsheetWorkbench ( Workbench ):
     def GetClassName(self):
         return "SpreadsheetGui::Workbench"
 
-Gui.addWorkbench(SpreadsheetWorkbench())
+# Gui.addWorkbench(SpreadsheetWorkbench())
 
-# Append the open handler
-FreeCAD.addImportType("Spreadsheet formats (*.csv)","SpreadsheetGui")
+# # Append the open handler
+# FreeCAD.addImportType("Spreadsheet formats (*.csv)","SpreadsheetGui")

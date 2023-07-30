@@ -67,39 +67,39 @@ PyObject* initModule()
 
 
 /* Python entry */
-PyMOD_INIT_FUNC(PointsGui)
-{
-    if (!Gui::Application::Instance) {
-        PyErr_SetString(PyExc_ImportError, "Cannot load Gui module in console application.");
-        PyMOD_Return(nullptr);
-    }
+// PyMOD_INIT_FUNC(PointsGui)
+// {
+//     if (!Gui::Application::Instance) {
+//         PyErr_SetString(PyExc_ImportError, "Cannot load Gui module in console application.");
+//         PyMOD_Return(nullptr);
+//     }
 
-    // load dependent module
-    try {
-        Base::Interpreter().loadModule("Points");
-    }
-    catch(const Base::Exception& e) {
-        PyErr_SetString(PyExc_ImportError, e.what());
-        PyMOD_Return(nullptr);
-    }
+//     // load dependent module
+//     try {
+//         Base::Interpreter().loadModule("Points");
+//     }
+//     catch(const Base::Exception& e) {
+//         PyErr_SetString(PyExc_ImportError, e.what());
+//         PyMOD_Return(nullptr);
+//     }
 
-    Base::Console().Log("Loading GUI of Points module... done\n");
-    PyObject* mod = PointsGui::initModule();
+//     Base::Console().Log("Loading GUI of Points module... done\n");
+//     PyObject* mod = PointsGui::initModule();
 
-    // instantiating the commands
-    CreatePointsCommands();
+//     // instantiating the commands
+//     CreatePointsCommands();
 
-    PointsGui::ViewProviderPoints       ::init();
-    PointsGui::ViewProviderScattered    ::init();
-    PointsGui::ViewProviderStructured   ::init();
-    PointsGui::ViewProviderPython       ::init();
-    PointsGui::Workbench                ::init();
-    Gui::ViewProviderBuilder::add(
-        Points::PropertyPointKernel::getClassTypeId(),
-        PointsGui::ViewProviderPoints::getClassTypeId());
+//     PointsGui::ViewProviderPoints       ::init();
+//     PointsGui::ViewProviderScattered    ::init();
+//     PointsGui::ViewProviderStructured   ::init();
+//     PointsGui::ViewProviderPython       ::init();
+//     PointsGui::Workbench                ::init();
+//     Gui::ViewProviderBuilder::add(
+//         Points::PropertyPointKernel::getClassTypeId(),
+//         PointsGui::ViewProviderPoints::getClassTypeId());
 
-    // add resources and reloads the translators
-    loadPointsResource();
+//     // add resources and reloads the translators
+//     loadPointsResource();
 
-    PyMOD_Return(mod);
-}
+//     PyMOD_Return(mod);
+// }

@@ -47,4 +47,4 @@ class MeshWorkbench (Workbench):
     def GetClassName(self):
         return "MeshGui::Workbench"
 
-Gui.addWorkbench(MeshWorkbench())
+# Gui.addWorkbench(MeshWorkbench())

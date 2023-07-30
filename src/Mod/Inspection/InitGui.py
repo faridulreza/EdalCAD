@@ -40,4 +40,4 @@ class InspectionWorkbench ( Workbench ):
     def GetClassName(self):
         return "InspectionGui::Workbench"
 
-Gui.addWorkbench(InspectionWorkbench())
+# Gui.addWorkbench(InspectionWorkbench())

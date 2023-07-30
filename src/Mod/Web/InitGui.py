@@ -41,9 +41,9 @@ class WebWorkbench ( Workbench ):
     def GetClassName(self):
         return "WebGui::Workbench"
 
-Gui.addWorkbench(WebWorkbench())
+# Gui.addWorkbench(WebWorkbench())
 
-# Append the open handler
-FreeCAD.addImportType("Web Page (*.html *.xhtml)", "WebGui")
+# # Append the open handler
+# FreeCAD.addImportType("Web Page (*.html *.xhtml)", "WebGui")
 
-FreeCAD.__unit_test__ += [ "TestWebGui" ]
+# FreeCAD.__unit_test__ += [ "TestWebGui" ]

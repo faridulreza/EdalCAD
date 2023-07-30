@@ -66,23 +66,23 @@ PyObject* initModule()
 
 
 /* Python entry */
-PyMOD_INIT_FUNC(MeshPartGui)
-{
-    if (!Gui::Application::Instance) {
-        PyErr_SetString(PyExc_ImportError, "Cannot load Gui module in console application.");
-        PyMOD_Return(nullptr);
-    }
+// PyMOD_INIT_FUNC(MeshPartGui)
+// {
+//     if (!Gui::Application::Instance) {
+//         PyErr_SetString(PyExc_ImportError, "Cannot load Gui module in console application.");
+//         PyMOD_Return(nullptr);
+//     }
 
-    PyObject* mod = MeshPartGui::initModule();
-    Base::Console().Log("Loading GUI of MeshPart module... done\n");
+//     PyObject* mod = MeshPartGui::initModule();
+//     Base::Console().Log("Loading GUI of MeshPart module... done\n");
 
-    // instantiating the commands
-    CreateMeshPartCommands();
-    MeshPartGui::Workbench                  ::init();
-    MeshPartGui::ViewProviderCurveOnMesh    ::init();
+//     // instantiating the commands
+//     CreateMeshPartCommands();
+//     MeshPartGui::Workbench                  ::init();
+//     MeshPartGui::ViewProviderCurveOnMesh    ::init();
 
-     // add resources and reloads the translators
-    loadMeshPartResource();
+//      // add resources and reloads the translators
+//     loadMeshPartResource();
 
-    PyMOD_Return(mod);
-}
+//     PyMOD_Return(mod);
+// }

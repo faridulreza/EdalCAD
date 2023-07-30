@@ -294,6 +294,8 @@ InitApplications()
 # set standard workbench (needed as fallback)
 Gui.activateWorkbench("NoneWorkbench")
 
+
+
 # Register .py, .FCScript and .FCMacro
 FreeCAD.addImportType("Inventor V2.1 (*.iv)","FreeCADGui")
 FreeCAD.addImportType("VRML V2.0 (*.wrl *.vrml *.wrz *.wrl.gz)","FreeCADGui")
@@ -305,6 +307,8 @@ FreeCAD.addExportType("WebGL/X3D (*.xhtml)","FreeCADGui")
 #FreeCAD.addExportType("IDTF (for 3D PDF) (*.idtf)","FreeCADGui")
 #FreeCAD.addExportType("3D View (*.svg)","FreeCADGui")
 FreeCAD.addExportType("Portable Document Format (*.pdf)","FreeCADGui")
+
+
 
 del InitApplications
 del NoneWorkbench

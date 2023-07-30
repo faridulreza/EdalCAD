@@ -37,26 +37,26 @@ namespace Points {
 }
 
 /* Python entry */
-PyMOD_INIT_FUNC(Points)
-{
-    PyObject* pointsModule = Points::initModule();
-    Base::Console().Log("Loading Points module... done\n");
+// PyMOD_INIT_FUNC(Points)
+// {
+//     PyObject* pointsModule = Points::initModule();
+//     Base::Console().Log("Loading Points module... done\n");
 
-    // add python types
-    Base::Interpreter().addType(&Points::PointsPy::Type, pointsModule, "Points");
+//     // add python types
+//     Base::Interpreter().addType(&Points::PointsPy::Type, pointsModule, "Points");
 
-    // add properties
-    Points::PropertyGreyValue     ::init();
-    Points::PropertyGreyValueList ::init();
-    Points::PropertyNormalList    ::init();
-    Points::PropertyCurvatureList ::init();
-    Points::PropertyPointKernel   ::init();
+//     // add properties
+//     Points::PropertyGreyValue     ::init();
+//     Points::PropertyGreyValueList ::init();
+//     Points::PropertyNormalList    ::init();
+//     Points::PropertyCurvatureList ::init();
+//     Points::PropertyPointKernel   ::init();
 
-    // add data types
-    Points::Feature               ::init();
-    Points::Structured            ::init();
-    Points::FeatureCustom         ::init();
-    Points::StructuredCustom      ::init();
-    Points::FeaturePython         ::init();
-    PyMOD_Return(pointsModule);
-}
+//     // add data types
+//     Points::Feature               ::init();
+//     Points::Structured            ::init();
+//     Points::FeatureCustom         ::init();
+//     Points::StructuredCustom      ::init();
+//     Points::FeaturePython         ::init();
+//     PyMOD_Return(pointsModule);
+// }

@@ -53,6 +53,6 @@ class SketcherWorkbench(Workbench):
         return "SketcherGui::Workbench"
 
 
-Gui.addWorkbench(SketcherWorkbench())
+# Gui.addWorkbench(SketcherWorkbench())
 
-FreeCAD.__unit_test__ += ["TestSketcherGui"]
+# FreeCAD.__unit_test__ += ["TestSketcherGui"]

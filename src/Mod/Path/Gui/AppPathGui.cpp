@@ -52,42 +52,42 @@ extern PyObject* initModule();
 }
 
 /* Python entry */
-PyMOD_INIT_FUNC(PathGui)
-{
-     if (!Gui::Application::Instance) {
-        PyErr_SetString(PyExc_ImportError, "Cannot load Gui module in console application.");
-        PyMOD_Return(nullptr);
-    }
-    try {
-        Base::Interpreter().runString("import PartGui");
-        Base::Interpreter().runString("import Path");
-    }
-    catch(const Base::Exception& e) {
-        PyErr_SetString(PyExc_ImportError, e.what());
-        PyMOD_Return(nullptr);
-    }
-    PyObject* mod = PathGui::initModule();
-    Base::Console().Log("Loading GUI of Path module... done\n");
+// PyMOD_INIT_FUNC(PathGui)
+// {
+//      if (!Gui::Application::Instance) {
+//         PyErr_SetString(PyExc_ImportError, "Cannot load Gui module in console application.");
+//         PyMOD_Return(nullptr);
+//     }
+//     try {
+//         Base::Interpreter().runString("import PartGui");
+//         Base::Interpreter().runString("import Path");
+//     }
+//     catch(const Base::Exception& e) {
+//         PyErr_SetString(PyExc_ImportError, e.what());
+//         PyMOD_Return(nullptr);
+//     }
+//     PyObject* mod = PathGui::initModule();
+//     Base::Console().Log("Loading GUI of Path module... done\n");
 
-    // instantiating the commands
-    CreatePathCommands();
+//     // instantiating the commands
+//     CreatePathCommands();
 
-    // addition objects
-    PathGui::ViewProviderPath               ::init();
-    PathGui::ViewProviderPathCompound       ::init();
-    PathGui::ViewProviderPathCompoundPython ::init();
-    PathGui::ViewProviderPathShape          ::init();
-    PathGui::ViewProviderPathPython         ::init();
-    PathGui::ViewProviderArea               ::init();
-    PathGui::ViewProviderAreaPython         ::init();
-    PathGui::ViewProviderAreaView           ::init();
-    PathGui::ViewProviderAreaViewPython     ::init();
+//     // addition objects
+//     PathGui::ViewProviderPath               ::init();
+//     PathGui::ViewProviderPathCompound       ::init();
+//     PathGui::ViewProviderPathCompoundPython ::init();
+//     PathGui::ViewProviderPathShape          ::init();
+//     PathGui::ViewProviderPathPython         ::init();
+//     PathGui::ViewProviderArea               ::init();
+//     PathGui::ViewProviderAreaPython         ::init();
+//     PathGui::ViewProviderAreaView           ::init();
+//     PathGui::ViewProviderAreaViewPython     ::init();
 
-     // add resources and reloads the translators
-    loadPathResource();
+//      // add resources and reloads the translators
+//     loadPathResource();
 
-    // register preferences pages
-    new Gui::PrefPageProducer<PathGui::DlgSettingsPathColor> (QT_TRANSLATE_NOOP("QObject","Path"));
+//     // register preferences pages
+//     new Gui::PrefPageProducer<PathGui::DlgSettingsPathColor> (QT_TRANSLATE_NOOP("QObject","Path"));
 
-    PyMOD_Return(mod);
-}
+//     PyMOD_Return(mod);
+// }

@@ -42,4 +42,4 @@ class ReverseEngineeringWorkbench ( Workbench ):
     def GetClassName(self):
         return "ReverseEngineeringGui::Workbench"
 
-Gui.addWorkbench(ReverseEngineeringWorkbench())
+# Gui.addWorkbench(ReverseEngineeringWorkbench())

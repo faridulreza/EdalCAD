@@ -37,4 +37,4 @@ class SandboxWorkbench ( Workbench ):
     def GetClassName(self):
         return "SandboxGui::Workbench"
 
-Gui.addWorkbench(SandboxWorkbench())
+# Gui.addWorkbench(SandboxWorkbench())

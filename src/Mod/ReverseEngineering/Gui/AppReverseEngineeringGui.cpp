@@ -65,30 +65,30 @@ PyObject* initModule()
 
 
 /* Python entry */
-PyMOD_INIT_FUNC(ReverseEngineeringGui)
-{
-    if (!Gui::Application::Instance) {
-        PyErr_SetString(PyExc_ImportError, "Cannot load Gui module in console application.");
-        PyMOD_Return(nullptr);
-    }
+// PyMOD_INIT_FUNC(ReverseEngineeringGui)
+// {
+//     if (!Gui::Application::Instance) {
+//         PyErr_SetString(PyExc_ImportError, "Cannot load Gui module in console application.");
+//         PyMOD_Return(nullptr);
+//     }
 
-    // load dependent module
-    try {
-        Base::Interpreter().loadModule("MeshGui");
-    }
-    catch(const Base::Exception& e) {
-        PyErr_SetString(PyExc_ImportError, e.what());
-        PyMOD_Return(nullptr);
-    }
+//     // load dependent module
+//     try {
+//         Base::Interpreter().loadModule("MeshGui");
+//     }
+//     catch(const Base::Exception& e) {
+//         PyErr_SetString(PyExc_ImportError, e.what());
+//         PyMOD_Return(nullptr);
+//     }
 
-    PyObject* mod = ReverseEngineeringGui::initModule();
-    Base::Console().Log("Loading GUI of ReverseEngineering module... done\n");
+//     PyObject* mod = ReverseEngineeringGui::initModule();
+//     Base::Console().Log("Loading GUI of ReverseEngineering module... done\n");
 
-    // instantiating the commands
-    CreateReverseEngineeringCommands();
-    ReverseEngineeringGui::Workbench::init();
+//     // instantiating the commands
+//     CreateReverseEngineeringCommands();
+//     ReverseEngineeringGui::Workbench::init();
 
-     // add resources and reloads the translators
-    loadReverseEngineeringResource();
-    PyMOD_Return(mod);
-}
+//      // add resources and reloads the translators
+//     loadReverseEngineeringResource();
+//     PyMOD_Return(mod);
+// }

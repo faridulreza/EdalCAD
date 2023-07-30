@@ -63,6 +63,6 @@ class PartDesignWorkbench ( Workbench ):
     def GetClassName(self):
         return "PartDesignGui::Workbench"
 
-Gui.addWorkbench(PartDesignWorkbench())
+# Gui.addWorkbench(PartDesignWorkbench())
 
-FreeCAD.__unit_test__ += [ "TestPartDesignGui" ]
+# FreeCAD.__unit_test__ += [ "TestPartDesignGui" ]

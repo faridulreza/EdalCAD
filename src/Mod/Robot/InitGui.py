@@ -43,4 +43,4 @@ class RobotWorkbench ( Workbench ):
     def GetClassName(self):
         return "RobotGui::Workbench"
 
-Gui.addWorkbench(RobotWorkbench())
+# Gui.addWorkbench(RobotWorkbench())

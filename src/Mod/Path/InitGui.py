@@ -344,6 +344,6 @@ class PathWorkbench(Workbench):
             self.appendContextMenu("", "Separator")
 
 
-Gui.addWorkbench(PathWorkbench())
+# Gui.addWorkbench(PathWorkbench())
 
-FreeCAD.addImportType("GCode (*.nc *.gc *.ncc *.ngc *.cnc *.tap *.gcode)", "PathGui")
+# FreeCAD.addImportType("GCode (*.nc *.gc *.ncc *.ngc *.cnc *.tap *.gcode)", "PathGui")

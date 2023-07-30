@@ -40,4 +40,4 @@ class PointsWorkbench ( Workbench ):
     def GetClassName(self):
         return "PointsGui::Workbench"
 
-Gui.addWorkbench(PointsWorkbench())
+# Gui.addWorkbench(PointsWorkbench())

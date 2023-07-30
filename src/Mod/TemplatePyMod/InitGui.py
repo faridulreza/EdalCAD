@@ -47,4 +47,4 @@ class TemplatePyModWorkbench ( Workbench ):
 	def Deactivated(self):
 		Msg("TemplatePyModWorkbench::Deactivated()\n")
 
-Gui.addWorkbench(TemplatePyModWorkbench)
+# Gui.addWorkbench(TemplatePyModWorkbench)

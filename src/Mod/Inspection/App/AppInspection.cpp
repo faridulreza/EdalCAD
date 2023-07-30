@@ -51,16 +51,16 @@ PyObject* initModule()
 
 
 /* Python entry */
-PyMOD_INIT_FUNC(Inspection)
-{
-    // ADD YOUR CODE HERE
-    //
-    //
-    PyObject* mod = Inspection::initModule();
-    Base::Console().Log("Loading Inspection module... done\n");
+// PyMOD_INIT_FUNC(Inspection)
+// {
+//     // ADD YOUR CODE HERE
+//     //
+//     //
+//     PyObject* mod = Inspection::initModule();
+//     Base::Console().Log("Loading Inspection module... done\n");
 
-    Inspection::PropertyDistanceList    ::init();
-    Inspection::Feature                 ::init();
-    Inspection::Group                   ::init();
-    PyMOD_Return(mod);
-}
+//     Inspection::PropertyDistanceList    ::init();
+//     Inspection::Feature                 ::init();
+//     Inspection::Group                   ::init();
+//     PyMOD_Return(mod);
+// }

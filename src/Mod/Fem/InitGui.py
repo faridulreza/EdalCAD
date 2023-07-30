@@ -81,4 +81,4 @@ class FemWorkbench(Workbench):
         return "FemGui::Workbench"
 
 
-FreeCADGui.addWorkbench(FemWorkbench())
+# FreeCADGui.addWorkbench(FemWorkbench())

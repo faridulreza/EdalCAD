@@ -121,84 +121,84 @@ PyObject* initModule()
 } // namespace MeshGui
 
 /* Python entry */
-PyMOD_INIT_FUNC(MeshGui)
-{
-    if (!Gui::Application::Instance) {
-        PyErr_SetString(PyExc_ImportError, "Cannot load Gui module in console application.");
-        PyMOD_Return(nullptr);
-    }
+// PyMOD_INIT_FUNC(MeshGui)
+// {
+//     if (!Gui::Application::Instance) {
+//         PyErr_SetString(PyExc_ImportError, "Cannot load Gui module in console application.");
+//         PyMOD_Return(nullptr);
+//     }
 
-    // load dependent module
-    try {
-        Base::Interpreter().loadModule("Mesh");
-    }
-    catch(const Base::Exception& e) {
-        PyErr_SetString(PyExc_ImportError, e.what());
-        PyMOD_Return(nullptr);
-    }
-    PyObject* mod = MeshGui::initModule();
-    Base::Console().Log("Loading GUI of Mesh module... done\n");
+//     // load dependent module
+//     try {
+//         Base::Interpreter().loadModule("Mesh");
+//     }
+//     catch(const Base::Exception& e) {
+//         PyErr_SetString(PyExc_ImportError, e.what());
+//         PyMOD_Return(nullptr);
+//     }
+//     PyObject* mod = MeshGui::initModule();
+//     Base::Console().Log("Loading GUI of Mesh module... done\n");
 
-    // Register icons
-    Gui::BitmapFactory().addXPM("mesh_fillhole", mesh_fillhole);
+//     // Register icons
+//     Gui::BitmapFactory().addXPM("mesh_fillhole", mesh_fillhole);
 
-    // instantiating the commands
-    CreateMeshCommands();
-    if (qApp) {
-        (void)new MeshGui::CleanupHandler;
-    }
+//     // instantiating the commands
+//     CreateMeshCommands();
+//     if (qApp) {
+//         (void)new MeshGui::CleanupHandler;
+//     }
 
-    // try to instantiate flat-mesh commands
-    try{
-        Base::Interpreter().runString("import MeshFlatteningCommand");
-    } catch (Base::PyException &err){
-        err.ReportException();
-    }
+//     // try to instantiate flat-mesh commands
+//     try{
+//         Base::Interpreter().runString("import MeshFlatteningCommand");
+//     } catch (Base::PyException &err){
+//         err.ReportException();
+//     }
 
-    // register preferences pages
-    (void)new Gui::PrefPageProducer<MeshGui::DlgSettingsMeshView> (QT_TRANSLATE_NOOP("QObject", "Display"));
-    (void)new Gui::PrefPageProducer<MeshGui::DlgSettingsImportExport>     ( QT_TRANSLATE_NOOP("QObject", "Import-Export") );
+//     // register preferences pages
+//     (void)new Gui::PrefPageProducer<MeshGui::DlgSettingsMeshView> (QT_TRANSLATE_NOOP("QObject", "Display"));
+//     (void)new Gui::PrefPageProducer<MeshGui::DlgSettingsImportExport>     ( QT_TRANSLATE_NOOP("QObject", "Import-Export") );
 
-    Mesh::Extension3MFFactory::addProducer(new MeshGui::ThumbnailExtensionProducer);
+//     Mesh::Extension3MFFactory::addProducer(new MeshGui::ThumbnailExtensionProducer);
 
-    MeshGui::SoFCMeshObjectElement              ::initClass();
-    MeshGui::SoSFMeshObject                     ::initClass();
-    MeshGui::SoFCMeshObjectNode                 ::initClass();
-    MeshGui::SoFCMeshObjectShape                ::initClass();
-    MeshGui::SoFCMeshSegmentShape               ::initClass();
-    MeshGui::SoFCMeshObjectBoundary             ::initClass();
-    MeshGui::SoFCMaterialEngine                 ::initClass();
-    MeshGui::SoFCIndexedFaceSet                 ::initClass();
-    MeshGui::SoFCMeshPickNode                   ::initClass();
-    MeshGui::SoFCMeshGridNode                   ::initClass();
-    MeshGui::SoPolygon                          ::initClass();
-    MeshGui::PropertyMeshKernelItem             ::init();
-    MeshGui::ViewProviderMesh                   ::init();
-    MeshGui::ViewProviderMeshObject             ::init();
-    MeshGui::ViewProviderIndexedFaceSet         ::init();
-    MeshGui::ViewProviderMeshFaceSet            ::init();
-    MeshGui::ViewProviderPython                 ::init();
-    MeshGui::ViewProviderExport                 ::init();
-    MeshGui::ViewProviderMeshCurvature          ::init();
-    MeshGui::ViewProviderMeshTransform          ::init();
-    MeshGui::ViewProviderMeshTransformDemolding ::init();
-    MeshGui::ViewProviderMeshDefects            ::init();
-    MeshGui::ViewProviderMeshOrientation        ::init();
-    MeshGui::ViewProviderMeshNonManifolds       ::init();
-    MeshGui::ViewProviderMeshNonManifoldPoints  ::init();
-    MeshGui::ViewProviderMeshDuplicatedFaces    ::init();
-    MeshGui::ViewProviderMeshDuplicatedPoints   ::init();
-    MeshGui::ViewProviderMeshDegenerations      ::init();
-    MeshGui::ViewProviderMeshIndices            ::init();
-    MeshGui::ViewProviderMeshSelfIntersections  ::init();
-    MeshGui::ViewProviderMeshFolds              ::init();
-    MeshGui::Workbench                          ::init();
-    Gui::ViewProviderBuilder::add(
-        Mesh::PropertyMeshKernel::getClassTypeId(),
-        MeshGui::ViewProviderMeshFaceSet::getClassTypeId());
+//     MeshGui::SoFCMeshObjectElement              ::initClass();
+//     MeshGui::SoSFMeshObject                     ::initClass();
+//     MeshGui::SoFCMeshObjectNode                 ::initClass();
+//     MeshGui::SoFCMeshObjectShape                ::initClass();
+//     MeshGui::SoFCMeshSegmentShape               ::initClass();
+//     MeshGui::SoFCMeshObjectBoundary             ::initClass();
+//     MeshGui::SoFCMaterialEngine                 ::initClass();
+//     MeshGui::SoFCIndexedFaceSet                 ::initClass();
+//     MeshGui::SoFCMeshPickNode                   ::initClass();
+//     MeshGui::SoFCMeshGridNode                   ::initClass();
+//     MeshGui::SoPolygon                          ::initClass();
+//     MeshGui::PropertyMeshKernelItem             ::init();
+//     MeshGui::ViewProviderMesh                   ::init();
+//     MeshGui::ViewProviderMeshObject             ::init();
+//     MeshGui::ViewProviderIndexedFaceSet         ::init();
+//     MeshGui::ViewProviderMeshFaceSet            ::init();
+//     MeshGui::ViewProviderPython                 ::init();
+//     MeshGui::ViewProviderExport                 ::init();
+//     MeshGui::ViewProviderMeshCurvature          ::init();
+//     MeshGui::ViewProviderMeshTransform          ::init();
+//     MeshGui::ViewProviderMeshTransformDemolding ::init();
+//     MeshGui::ViewProviderMeshDefects            ::init();
+//     MeshGui::ViewProviderMeshOrientation        ::init();
+//     MeshGui::ViewProviderMeshNonManifolds       ::init();
+//     MeshGui::ViewProviderMeshNonManifoldPoints  ::init();
+//     MeshGui::ViewProviderMeshDuplicatedFaces    ::init();
+//     MeshGui::ViewProviderMeshDuplicatedPoints   ::init();
+//     MeshGui::ViewProviderMeshDegenerations      ::init();
+//     MeshGui::ViewProviderMeshIndices            ::init();
+//     MeshGui::ViewProviderMeshSelfIntersections  ::init();
+//     MeshGui::ViewProviderMeshFolds              ::init();
+//     MeshGui::Workbench                          ::init();
+//     Gui::ViewProviderBuilder::add(
+//         Mesh::PropertyMeshKernel::getClassTypeId(),
+//         MeshGui::ViewProviderMeshFaceSet::getClassTypeId());
 
-    // add resources and reloads the translators
-    loadMeshResource();
+//     // add resources and reloads the translators
+//     loadMeshResource();
 
-    PyMOD_Return(mod);
-}
+//     PyMOD_Return(mod);
+// }
