@@ -1726,76 +1726,76 @@ QPixmap MainWindow::splashImage() const
 
     // include application name and version number
     std::map<std::string,std::string>::const_iterator tc = App::Application::Config().find("SplashInfoColor");
-    if (tc != App::Application::Config().end()) {
-        QString title = qApp->applicationName();
-        QString major   = QString::fromLatin1(App::Application::Config()["BuildVersionMajor"].c_str());
-        QString minor   = QString::fromLatin1(App::Application::Config()["BuildVersionMinor"].c_str());
-        QString point   = QString::fromLatin1(App::Application::Config()["BuildVersionPoint"].c_str());
-        QString version = QString::fromLatin1("%1.%2.%3").arg(major, minor, point);
-        QString position, fontFamily;
+    // if (tc != App::Application::Config().end()) {
+    //     QString title = qApp->applicationName();
+    //     QString major   = QString::fromLatin1(App::Application::Config()["BuildVersionMajor"].c_str());
+    //     QString minor   = QString::fromLatin1(App::Application::Config()["BuildVersionMinor"].c_str());
+    //     QString point   = QString::fromLatin1(App::Application::Config()["BuildVersionPoint"].c_str());
+    //     QString version = QString::fromLatin1("%1.%2.%3").arg(major, minor, point);
+    //     QString position, fontFamily;
 
-        std::map<std::string,std::string>::const_iterator te = App::Application::Config().find("SplashInfoExeName");
-        std::map<std::string,std::string>::const_iterator tv = App::Application::Config().find("SplashInfoVersion");
-        std::map<std::string,std::string>::const_iterator tp = App::Application::Config().find("SplashInfoPosition");
-        std::map<std::string,std::string>::const_iterator tf = App::Application::Config().find("SplashInfoFont");
-        if (te != App::Application::Config().end())
-            title = QString::fromUtf8(te->second.c_str());
-        if (tv != App::Application::Config().end())
-            version = QString::fromUtf8(tv->second.c_str());
-        if (tp != App::Application::Config().end())
-            position = QString::fromUtf8(tp->second.c_str());
-        if (tf != App::Application::Config().end())
-            fontFamily = QString::fromUtf8(tf->second.c_str());
+    //     std::map<std::string,std::string>::const_iterator te = App::Application::Config().find("SplashInfoExeName");
+    //     std::map<std::string,std::string>::const_iterator tv = App::Application::Config().find("SplashInfoVersion");
+    //     std::map<std::string,std::string>::const_iterator tp = App::Application::Config().find("SplashInfoPosition");
+    //     std::map<std::string,std::string>::const_iterator tf = App::Application::Config().find("SplashInfoFont");
+    //     if (te != App::Application::Config().end())
+    //         title = QString::fromUtf8(te->second.c_str());
+    //     if (tv != App::Application::Config().end())
+    //         version = QString::fromUtf8(tv->second.c_str());
+    //     if (tp != App::Application::Config().end())
+    //         position = QString::fromUtf8(tp->second.c_str());
+    //     if (tf != App::Application::Config().end())
+    //         fontFamily = QString::fromUtf8(tf->second.c_str());
 
-        QPainter painter;
-        painter.begin(&splash_image);
-        if (!fontFamily.isEmpty()) {
-            QFont font = painter.font();
-            if (font.fromString(fontFamily))
-                painter.setFont(font);
-        }
+    //     QPainter painter;
+    //     painter.begin(&splash_image);
+    //     if (!fontFamily.isEmpty()) {
+    //         QFont font = painter.font();
+    //         if (font.fromString(fontFamily))
+    //             painter.setFont(font);
+    //     }
 
-        QFont fontExe = painter.font();
-        fontExe.setPointSizeF(20.0);
-        QFontMetrics metricExe(fontExe);
-        int l = QtTools::horizontalAdvance(metricExe, title);
-        if (title == QLatin1String("FreeCAD")) {
-            l = 0.0; // "FreeCAD" text is already part of the splashscreen, version goes below it
-        }
-        int w = splash_image.width();
-        int h = splash_image.height();
+    //     QFont fontExe = painter.font();
+    //     fontExe.setPointSizeF(20.0);
+    //     QFontMetrics metricExe(fontExe);
+    //     int l = QtTools::horizontalAdvance(metricExe, title);
+    //     if (title == QLatin1String("FreeCAD")) {
+    //         l = 0.0; // "FreeCAD" text is already part of the splashscreen, version goes below it
+    //     }
+    //     int w = splash_image.width();
+    //     int h = splash_image.height();
 
-        QFont fontVer = painter.font();
-        fontVer.setPointSizeF(14.0);
-        QFontMetrics metricVer(fontVer);
-        int v = QtTools::horizontalAdvance(metricVer, version);
+    //     QFont fontVer = painter.font();
+    //     fontVer.setPointSizeF(14.0);
+    //     QFontMetrics metricVer(fontVer);
+    //     int v = QtTools::horizontalAdvance(metricVer, version);
 
-        int x = -1, y = -1;
-        QRegularExpression rx(QLatin1String("(\\d+).(\\d+)"));
-        auto match = rx.match(position);
-        if (match.hasMatch()) {
-            x = match.captured(1).toInt();
-            y = match.captured(2).toInt();
-        }
-        else {
-            x = w - (l + v + 10);
-            y = h - 20;
-        }
+    //     int x = -1, y = -1;
+    //     QRegularExpression rx(QLatin1String("(\\d+).(\\d+)"));
+    //     auto match = rx.match(position);
+    //     if (match.hasMatch()) {
+    //         x = match.captured(1).toInt();
+    //         y = match.captured(2).toInt();
+    //     }
+    //     else {
+    //         x = w - (l + v + 10);
+    //         y = h - 20;
+    //     }
 
-        QColor color;
-        color.setNamedColor(QString::fromLatin1(tc->second.c_str()));
-        if (color.isValid()) {
-            painter.setPen(color);
-            painter.setFont(fontExe);
-            if (title != QLatin1String("FreeCAD")) {
-                // FreeCAD's Splashscreen already contains the EXE name, no need to draw it
-                painter.drawText(x, y, title);
-            }
-            painter.setFont(fontVer);
-            painter.drawText(x + (l + 5), y, version);
-            painter.end();
-        }
-    }
+    //     QColor color;
+    //     color.setNamedColor(QString::fromLatin1(tc->second.c_str()));
+    //     if (color.isValid()) {
+    //         painter.setPen(color);
+    //         painter.setFont(fontExe);
+    //         if (title != QLatin1String("FreeCAD")) {
+    //             // FreeCAD's Splashscreen already contains the EXE name, no need to draw it
+    //             painter.drawText(x, y, title);
+    //         }
+    //         painter.setFont(fontVer);
+    //         painter.drawText(x + (l + 5), y, version);
+    //         painter.end();
+    //     }
+    // }
 
     return splash_image;
 }
