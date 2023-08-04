@@ -17,7 +17,7 @@ protected:
         if (App::Application::GetARGC() == 0) {
             int argc = 1;
             char* argv[] = {"FreeCAD"};
-            App::Application::Config()["ExeName"] = "Edalca";
+            App::Application::Config()["ExeName"] = "edalCAD";
             App::Application::init(argc, argv);
         }
     }

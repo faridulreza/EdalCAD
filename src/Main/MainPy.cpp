@@ -87,8 +87,8 @@ BOOL APIENTRY DllMain(HANDLE hModule, DWORD  ul_reason_for_call, LPVOID /*lpRese
 PyMOD_INIT_FUNC(FreeCAD)
 {
     // Init phase ===========================================================
-    App::Application::Config()["ExeName"] = "FreeCAD";
-    App::Application::Config()["ExeVendor"] = "FreeCAD";
+    App::Application::Config()["ExeName"] = "edalCAD";
+    App::Application::Config()["ExeVendor"] = "edalCAD";
     App::Application::Config()["AppDataSkipVendor"] = "true";
 
     QByteArray path;

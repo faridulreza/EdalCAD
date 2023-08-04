@@ -74,8 +74,8 @@ protected:
     {
         if (App::Application::GetARGC() == 0) {
             constexpr int argc = 1;
-            std::array<char*, argc> argv {"FreeCAD"};
-            App::Application::Config()["ExeName"] = "FreeCAD";
+            std::array<char*, argc> argv {"edalCAD"};
+            App::Application::Config()["ExeName"] = "edalCAD";
             App::Application::init(argc, argv.data());
         }
     }

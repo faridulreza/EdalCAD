@@ -77,8 +77,8 @@ int main( int argc, char ** argv )
 #endif
 
     // Name and Version of the Application
-    App::Application::Config()["ExeName"] = "Edalca";
-    App::Application::Config()["ExeVendor"] = "Edalca";
+    App::Application::Config()["ExeName"] = "edalCAD";
+    App::Application::Config()["ExeVendor"] = "edalCAD";
     App::Application::Config()["AppDataSkipVendor"] = "true";
 
     // set the banner (for logging and console)
