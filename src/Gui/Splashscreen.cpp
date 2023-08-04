@@ -247,7 +247,7 @@ SplashScreen::~SplashScreen()
  */
 void SplashScreen::drawContents ( QPainter * painter )
 {
-    QSplashScreen::drawContents(painter);
+    //QSplashScreen::drawContents(painter);
 }
 
 // ------------------------------------------------------------------------------
