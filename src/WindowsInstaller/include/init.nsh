@@ -11,9 +11,9 @@ Var FCLangName
 
 Function InitUser
 
-  # Get FreeCAD language
+  # Get EdalCAD language
   
-  ReadRegStr $FCLangName SHELL_CONTEXT "${APP_REGKEY_SETUP}" "FreeCAD Language"
+  ReadRegStr $FCLangName SHELL_CONTEXT "${APP_REGKEY_SETUP}" "EdalCAD Language"
   
   ${If} $FCLangName != ""
     StrCpy $LangName $FCLangName
@@ -63,7 +63,7 @@ Function .onInit
    !define LIBRARY_X64
   ${endif}
   
-  # Check that FreeCAD is not currently running
+  # Check that EdalCAD is not currently running
   ${nsProcess::FindProcess} ${BIN_FREECAD} $R0
   # if running result is '0', if not running it is '603'
   ${if} $R0 == "0"
@@ -76,20 +76,20 @@ Function .onInit
   # initialize the multi-uder installer UI
   !insertmacro MULTIUSER_INIT
   
-  # check if this FreeCAD version is already installed
+  # check if this EdalCAD version is already installed
   ${if} $MultiUser.Privileges == "Admin"
   ${orif} $MultiUser.Privileges == "Power"
    ReadRegStr $0 HKLM "${APP_UNINST_KEY}" "DisplayIcon"
   ${else}
    ReadRegStr $0 HKCU "${APP_UNINST_KEY}" "DisplayIcon"
-   # handle also the case that FreeCAD is already installed in HKLM
+   # handle also the case that EdalCAD is already installed in HKLM
    ${if} $0 == ""
     ReadRegStr $0 HKLM "${APP_UNINST_KEY}" "DisplayIcon"
    ${endif}
   ${endif}
   ${if} $0 != ""
    # check if the uninstaller was acidentally deleted
-   # if so, don't bother the user if they really want to install a new FreeCAD over an existing one
+   # if so, don't bother the user if they really want to install a new EdalCAD over an existing one
    # because they won't have a chance to deny this
    StrCpy $4 $0 -16 # remove '\bin\edalCAD.exe'
    # (for FileCheck the variables $0 and $1 cannot be used)
@@ -97,16 +97,16 @@ Function .onInit
    ${if} $5 == "False"
     Goto ForceInstallation
    ${endif}
-   # installing over an existing installation of the same FreeCAD release is not necessary
-   # if the users does this, they most probably have a problem with FreeCAD that can better be solved
-   # by reinstalling FreeCAD
+   # installing over an existing installation of the same EdalCAD release is not necessary
+   # if the users does this, they most probably have a problem with EdalCAD that can better be solved
+   # by reinstalling EdalCAD
    # for beta and other test releases over-installing can even cause errors
    MessageBox MB_YESNO|MB_DEFBUTTON2|MB_ICONEXCLAMATION "$(AlreadyInstalled)" /SD IDNO IDYES ForceInstallation 
    Abort
    ForceInstallation:
   ${endif}
   
-  # check if there is an existing FreeCAD installation of the same FreeCAD series
+  # check if there is an existing EdalCAD installation of the same EdalCAD series
   # we usually don't release more than 10 versions so with 20 we are safe to check if a newer version is installed
   IntOp $4 ${APP_VERSION_REVISION} + 20
   ${for} $5 0 $4
@@ -160,7 +160,7 @@ Function un.onInit
 
   !insertmacro MULTIUSER_UNINIT
 
-  # Check that FreeCAD is not currently running
+  # Check that EdalCAD is not currently running
   ${nsProcess::FindProcess} ${BIN_FREECAD} $R0
   # if running result is '0', if not running it is '603'
   ${if} $R0 == "0"
@@ -184,7 +184,7 @@ Function un.onInit
   ${endif}
 
   # Ascertain whether the user has sufficient privileges to uninstall.
-  # abort when FreeCAD was installed with admin permissions but the user doesn't have administrator privileges
+  # abort when EdalCAD was installed with admin permissions but the user doesn't have administrator privileges
   ReadRegStr $0 HKLM "${APP_UNINST_KEY}" "DisplayVersion"
   ${if} $0 != ""
   ${andif} $MultiUser.Privileges != "Admin"
@@ -192,7 +192,7 @@ Function un.onInit
    MessageBox MB_OK|MB_ICONSTOP "$(UnNotAdminLabel)" /SD IDOK
    Abort
   ${endif}
-  # warning when FreeCAD couldn't be found in the registry
+  # warning when EdalCAD couldn't be found in the registry
   ${if} $0 == "" # check in HKCU
    ReadRegStr $0 HKCU "${APP_UNINST_KEY}" "DisplayVersion"
    ${if} $0 == ""
@@ -200,10 +200,10 @@ Function un.onInit
    ${endif}
   ${endif}
   
-  # Macro to investigate name of FreeCAD's preferences folders to be able remove them
+  # Macro to investigate name of EdalCAD's preferences folders to be able remove them
   !insertmacro UnAppPreSuff $AppPre $AppSuff # macro from Utils.nsh
 
-  # question message if the user really wants to uninstall FreeCAD
+  # question message if the user really wants to uninstall EdalCAD
   MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 "$(UnReallyRemoveLabel)" /SD IDYES IDYES +2 # continue if yes
   Abort
 

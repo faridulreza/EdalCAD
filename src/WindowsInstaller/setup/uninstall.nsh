@@ -10,7 +10,7 @@ Var FileAssociation
 
 # ----------------------------------
 
-Section "un.FreeCAD" un.SecUnProgramFiles
+Section "un.EdalCAD" un.SecUnProgramFiles
 
   SectionIn RO
     
@@ -77,12 +77,12 @@ SectionEnd
 
 #---------------------------------
 # user preferences
-Section /o "un.$(UnFreeCADPreferencesTitle)" un.SecUnPreferences
+Section /o "un.$(UnEdalCADPreferencesTitle)" un.SecUnPreferences
 
  # issue a warning dialog
  MessageBox MB_YESNO|MB_DEFBUTTON2|MB_ICONEXCLAMATION $(DialogUnPreferences) /SD IDYES IDYES +2 # continue if yes
   Goto NotPreferences
- # remove FreeCAD's config files
+ # remove EdalCAD's config files
  StrCpy $AppSubfolder ${APP_DIR_USERDATA}
  Call un.DelAppPathSub # function from Utils.nsh
  # remove the registry key that stores the main window parameters

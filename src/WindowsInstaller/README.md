@@ -1,15 +1,15 @@
-# FreeCADInstProj
-A Windows installer for FreeCAD
+# EdalCADInstProj
+A Windows installer for EdalCAD
 
 To build the installer you can do the following:
 1. Get the latest zip-file of the whole installer source code "FC-standard-installer.zip" from</br>
-   https://github.com/donovaly/FreeCADInstProj/releases
-2. Extract it to e.g. the path "C:\FreeCAD\Installer"
+   https://github.com/donovaly/EdalCADInstProj/releases
+2. Extract it to e.g. the path "C:\EdalCAD\Installer"
 3. Open the file *Settings.nsh* with a text editor</br>
    (the editor jEdit (jedit.org) can be recommended to edit NSIS files)</br>
    and adapt there the following paths to the ones on your PC, e.g.:</br>
-   `!define FILES_FREECAD "C:\FreeCAD\Installer\FreeCAD"`</br>
-   `!define FILES_DEPS "C:\FreeCAD\Installer\MSVCRedist"`
+   `!define FILES_FREECAD "C:\EdalCAD\Installer\EdalCAD"`</br>
+   `!define FILES_DEPS "C:\EdalCAD\Installer\MSVCRedist"`
 4. Specify in Settings.nsh if it should be an installer for 32bit by commenting the line</br>
    `!define MULTIUSER_USE_PROGRAMFILES64`
 5. Install the latest version 3.x of NSIS (https://nsis.sourceforge.io/Download)
@@ -27,9 +27,9 @@ To build the installer you can do the following:
 
 Now you have 2 options:
 
-* Either you got an already compiled FreeCAD, then copy all FreeCAD files to the folder</br>
-   *~\FreeCAD" e.g. "C:\FreeCAD\Installer\FreeCAD*
-* Or you compiled FreeCAD on your own as described [here](https://wiki.freecad.org/Compile_on_Windows). Then:
+* Either you got an already compiled EdalCAD, then copy all EdalCAD files to the folder</br>
+   *~\EdalCAD" e.g. "C:\EdalCAD\Installer\EdalCAD*
+* Or you compiled EdalCAD on your own as described [here](https://wiki.edalcad.org/Compile_on_Windows). Then:
     * Open the file *Settings.nsh* as described in step 3. above and set there</br>
      `!define FILES_FREECAD` to the folder you specified as `CMAKE_INSTALL_PREFIX`
     * Copy into that folder the file *Delete.bat* that is part of the installer
@@ -42,12 +42,12 @@ Now you have 2 options:
     * (These steps assure that the installer only contains files users need. Moreover it assures that the
     overall files size is below 2 GB and we can use the most compact compression for the installer.)
 
-10. If you use a version of FreeCAD that was compiled using another MSVC version than MSVC 2019,
+10. If you use a version of EdalCAD that was compiled using another MSVC version than MSVC 2019,
    copy its distributable DLLs to the folder FILES_DEPS (see step 3).
-11. Right-click on the file *FreeCAD-installer.nsi* and choose **Compile NSIS script**
+11. Right-click on the file *EdalCAD-installer.nsi* and choose **Compile NSIS script**
    to compile the installer.
 12. The folder *~\MSVCRedist* contains already all MSVC 2019 x64 redistributable DLLs necessary
-   for FreeCAD 0.20. If another MSVC version was used to compile FreeCAD, replace the DLLs by
+   for EdalCAD 0.20. If another MSVC version was used to compile EdalCAD, replace the DLLs by
    the ones of the used MSVC. (They are usually available in the folder
    *C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Redist\MSVC*)
 

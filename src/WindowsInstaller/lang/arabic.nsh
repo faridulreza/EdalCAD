@@ -1,5 +1,5 @@
 ﻿/*
-FreeCAD Installer Language File
+EdalCAD Installer Language File
 Language: Arabic
 */
 
@@ -14,7 +14,7 @@ ${LangFileString} TEXT_WELCOME "هذا المساعد سوف يرشدك خلال
 #${LangFileString} TEXT_CONFIGURE_PYTHON "بناء سكربتات بايثون..."
 
 ${LangFileString} TEXT_FINISH_DESKTOP "إنشاء اختصار سطح المكتب"
-${LangFileString} TEXT_FINISH_WEBSITE "زيارة freecad.org لمشاهدة آخر الاخبار, الدعم والأفكار"
+${LangFileString} TEXT_FINISH_WEBSITE "زيارة edalcad.org لمشاهدة آخر الاخبار, الدعم والأفكار"
 
 #${LangFileString} FileTypeTitle "مستند - ليك"
 
@@ -56,15 +56,15 @@ ${LangFileString} UnNotInRegistryLabel "لم يتم العثور على ليك �
 ${LangFileString} UnInstallRunning "يجب إغلاق ليك أولا!"
 ${LangFileString} UnNotAdminLabel "يجب أن يكون لديك صلاحيات المدير لكي تحذف ليك!"
 ${LangFileString} UnReallyRemoveLabel "هل ترغب بإزالة ليك مع كل مكوناته؟"
-${LangFileString} UnFreeCADPreferencesTitle 'تفضيلات مستخدم ليك'
+${LangFileString} UnEdalCADPreferencesTitle 'تفضيلات مستخدم ليك'
 
 #${LangFileString} SecUnProgDescription "إزالة مدير ثبت المراجع xxx."
-${LangFileString} SecUnPreferencesDescription 'حذف FreeCAD$\'s ضبط$\r$\n\
+${LangFileString} SecUnPreferencesDescription 'حذف EdalCAD$\'s ضبط$\r$\n\
 						(مجلد $\"$AppPre\username\$\r$\n\
 						$AppSuff\$\r$\n\
 						${APP_DIR_USERDATA}$\")$\r$\n\
 						لك او لكل المستخدمين (إذا كنت المدير).'
-${LangFileString} DialogUnPreferences 'You chose to delete the FreeCADs user configuration.$\r$\n\
-						This will also delete all installed FreeCAD addons.$\r$\n\
+${LangFileString} DialogUnPreferences 'You chose to delete the EdalCADs user configuration.$\r$\n\
+						This will also delete all installed EdalCAD addons.$\r$\n\
 						Do you agree with this?'
 ${LangFileString} SecUnProgramFilesDescription "إزالة ليك مع كل مكوناته."

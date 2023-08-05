@@ -18,11 +18,12 @@ BrandingText " "
 !define MUI_ABORTWARNING
 !define MUI_ICON "${SETUP_ICON}"
 !define MUI_UNICON "${SETUP_ICON}"
-!define MUI_HEADERIMAGE
+!define MUI_HEADERIMAGE "${SETUP_HEADERIMAGE}"
 !define MUI_HEADERIMAGE_BITMAP "${SETUP_HEADERIMAGE}"
 !define MUI_HEADERIMAGE_RIGHT
 !define MUI_WELCOMEFINISHPAGE_BITMAP "${SETUP_WIZARDIMAGE}"
 !define MUI_UNWELCOMEFINISHPAGE_BITMAP "${SETUP_WIZARDIMAGE}"
+
 
 #--------------------------------
 # Pages
@@ -54,7 +55,7 @@ BrandingText " "
 # Watch the components being installed.
 !insertmacro MUI_PAGE_INSTFILES
 
-# The option to run FreeCAD from the finish page is currently disabled because
+# The option to run EdalCAD from the finish page is currently disabled because
 # it may run with Administrator priviledges, therefore causing a different
 # user directory to be used. This could be fixed by creating a separate
 # process without UAC elevation.
@@ -63,10 +64,10 @@ BrandingText " "
 
 !define MUI_FINISHPAGE_SHOWREADME
 !define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
-!define MUI_FINISHPAGE_SHOWREADME_FUNCTION StartFreeCAD
+!define MUI_FINISHPAGE_SHOWREADME_FUNCTION StartEdalCAD
 !define MUI_FINISHPAGE_SHOWREADME_TEXT $(FinishPageRun)
 !define MUI_FINISHPAGE_LINK $(TEXT_FINISH_WEBSITE)
-!define MUI_FINISHPAGE_LINK_LOCATION "https://www.freecad.org/"
+!define MUI_FINISHPAGE_LINK_LOCATION "https://www.edalcad.org/"
 #!define MUI_PAGE_CUSTOMFUNCTION_SHOW CheckDesktopShortcut
 !insertmacro MUI_PAGE_FINISH
 

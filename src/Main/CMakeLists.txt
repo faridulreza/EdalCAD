@@ -48,7 +48,7 @@ if(BUILD_GUI)
     add_executable(FreeCADMain WIN32 ${FreeCAD_SRCS})
     target_link_libraries(FreeCADMain ${FreeCAD_LIBS})
 
-    SET_BIN_DIR(FreeCADMain FreeCAD)
+    SET_BIN_DIR(FreeCADMain EdalCAD)
 
     if(WIN32)
         INSTALL(TARGETS FreeCADMain

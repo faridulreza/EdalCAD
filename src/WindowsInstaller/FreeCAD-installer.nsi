@@ -1,5 +1,5 @@
 ﻿/*
-FreeCAD Installer for Windows
+EdalCAD Installer for Windows
 Author: Uwe Stöhr
 Compatible with NSIS 3.x
 */
@@ -17,7 +17,7 @@ ManifestDPIAware true
 # installer settings like version numbers
 !include settings.nsh
 
-# declarations of FreeCAD's registry keys
+# declarations of EdalCAD's registry keys
 !include include\declarations.nsh
 
 # Multi-User settings
@@ -56,13 +56,13 @@ ManifestDPIAware true
 # sets the install sections and checks the system on starting the un/installer
 !include include\init.nsh
 
-# install FreeCAD and needed third-party programs like Python etc.
+# install EdalCAD and needed third-party programs like Python etc.
 !include setup\install.nsh
 
-# uninstall FreeCAD and all programs that were installed together with FreeCAD
+# uninstall EdalCAD and all programs that were installed together with EdalCAD
 !include setup\uninstall.nsh
 
-# configure FreeCAD (set start menu and write registry entries)
+# configure EdalCAD (set start menu and write registry entries)
 !include setup\configure.nsh
 
 #--------------------------------
