@@ -482,31 +482,31 @@ void AboutDialog::showCredits()
     //: Header for the Credits tab of the About screen
     creditsHTML += tr("Credits");
     creditsHTML += QString::fromLatin1("</h1><p>");
-    creditsHTML += tr("FreeCAD would not be possible without the contributions of");
-    creditsHTML += QString::fromLatin1(":</p><h2>"); 
+    creditsHTML += tr("This software was not possible without the last version of FreeCAD v0.21.0");
+    // creditsHTML += QString::fromLatin1(":</p><h2>"); 
     //: Header for the list of individual people in the Credits list.
-    creditsHTML += tr("Individuals");
-    creditsHTML += QString::fromLatin1("</h2><ul>");
+//     creditsHTML += tr("Individuals");
+//     creditsHTML += QString::fromLatin1("</h2><ul>");
 
-    QTextStream stream(&creditsFile);
-#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
-    stream.setCodec("UTF-8");
-#endif
-    QString line;
-    while (stream.readLineInto(&line)) {
-        if (!line.isEmpty()) {
-            if (line == QString::fromLatin1("Firms")) {
-                creditsHTML += QString::fromLatin1("</ul><h2>");
-                //: Header for the list of companies/organizations in the Credits list.
-                creditsHTML += tr("Organizations");
-                creditsHTML += QString::fromLatin1("</h2><ul>");
-            }
-            else {
-                creditsHTML += QString::fromLatin1("<li>") + line + QString::fromLatin1("</li>");
-            }
-        }
-    }
-    creditsHTML += QString::fromLatin1("</ul></body></html>");
+//     QTextStream stream(&creditsFile);
+// #if QT_VERSION < QT_VERSION_CHECK(6,0,0)
+//     stream.setCodec("UTF-8");
+// #endif
+//     QString line;
+//     while (stream.readLineInto(&line)) {
+//         if (!line.isEmpty()) {
+//             if (line == QString::fromLatin1("Firms")) {
+//                 creditsHTML += QString::fromLatin1("</ul><h2>");
+//                 //: Header for the list of companies/organizations in the Credits list.
+//                 creditsHTML += tr("Organizations");
+//                 creditsHTML += QString::fromLatin1("</h2><>");
+//             }
+//             else {
+//                 creditsHTML += QString::fromLatin1("<li>") + line + QString::fromLatin1("</li>");
+//             }
+//         }
+//     }
+    creditsHTML += QString::fromLatin1("</body></html>");
     textField->setHtml(creditsHTML);
 }
 

@@ -1858,7 +1858,7 @@ bool CommandManager::addTo(const char* Name, QWidget *pcWidget)
 #ifdef FC_DEBUG
         Base::Console().Error("CommandManager::addTo() try to add an unknown command (%s) to a widget!\n",Name);
 #else
-        Base::Console().Warning("Unknown command '%s'\n",Name);
+        //Base::Console().Warning("Unknown command '%s'\n",Name);
 #endif
         return false;
     }
